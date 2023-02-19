@@ -1,47 +1,110 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div class="app">
+    <h1>Todo list</h1>
+    <AppInput
+      v-model="searchQuery"
+      placeholder="Search..."
+      inputType="text"
+      v-focus
+      :style="{ width: '100%' }"
+    ></AppInput>
+    <div class="app__btns">
+      <AppButton @click="showDialog">New Todo</AppButton>
+      <AppSelect v-model="selectedSort" :options="sortOptions"></AppSelect>
     </div>
-  </header>
 
-  <main>
-    <TheWelcome />
-  </main>
+    <AppDialog v-model:show="dialogVisible">
+      <TodoForm @create="createTodo" />
+    </AppDialog>
+    <TodoList
+      :todos="sortedAndSearchedTodos"
+      @remove="removeTodo"
+      v-if="!isTodosLoading"
+    />
+    <div v-else>Loading...</div>
+  </div>
 </template>
 
+<script setup>
+//imports
+import axios from 'axios';
+import TodoForm from './components/TodoForm.vue';
+import TodoList from './components/TodoList.vue';
+import { ref, onMounted, computed } from 'vue';
+
+//variables
+const TODOS_URL = new URL(
+  'https://jsonplaceholder.typicode.com/todos?_limit=5'
+);
+
+//reactive variables
+const todos = ref([]);
+const dialogVisible = ref(false);
+const isTodosLoading = ref(false);
+const selectedSort = ref('');
+const sortOptions = ref([
+  { value: 'title', name: 'Sort on name' },
+  { value: 'body', name: 'Sort on priority' },
+]);
+const searchQuery = ref('');
+
+//methods
+function showDialog() {
+  dialogVisible.value = true;
+}
+
+function hideDialog() {
+  dialogVisible.value = false;
+}
+
+function createTodo(todo) {
+  todos.value.push(todo);
+  hideDialog();
+}
+
+function removeTodo(todo) {
+  todos.value = todos.value.filter((t) => t.id !== todo.id);
+}
+
+async function loadTodos() {
+  try {
+    isTodosLoading.value = true;
+    const response = await axios.get(TODOS_URL);
+    todos.value = response.data;
+  } catch (error) {
+    alert('Could not fetch todos');
+  } finally {
+    isTodosLoading.value = false;
+  }
+}
+
+//hooks
+onMounted(() => {
+  loadTodos();
+});
+
+//computed variables
+const sortedTodos = computed(() => {
+  return [...todos.value].sort((todo1, todo2) => {
+    return todo1[selectedSort.value]?.localeCompare(todo2[selectedSort.value]);
+  });
+});
+
+const sortedAndSearchedTodos = computed(() => {
+  return sortedTodos.value.filter((todo) =>
+    todo.title.toLowerCase().includes(searchQuery.value.toLowerCase())
+  );
+});
+</script>
+
 <style scoped>
-header {
-  line-height: 1.5;
+.app {
+  padding: 20px;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.app__btns {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
 }
 </style>
