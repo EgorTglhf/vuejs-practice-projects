@@ -3,10 +3,9 @@
     <h1>Todo list</h1>
     <AppInput
       v-model="searchQuery"
-      placeholder="Search..."
+      inputPlaceholder="Search..."
       inputType="text"
       v-focus
-      :style="{ width: '100%' }"
     ></AppInput>
     <div class="app__btns">
       <AppButton @click="showDialog">New Todo</AppButton>

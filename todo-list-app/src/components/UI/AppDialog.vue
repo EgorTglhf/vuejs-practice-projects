@@ -30,6 +30,7 @@ function hideDialog() {
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   display: flex;
+  z-index: 10;
 }
 .dialog__content {
   margin: auto;

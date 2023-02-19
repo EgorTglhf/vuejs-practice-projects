@@ -2,13 +2,12 @@
   <div class="todo">
     <div>
       <div><strong>Todo:</strong> {{ todo.title }}</div>
-      <div>
-        <strong>Completed: </strong>
-        <AppInput
-          v-model:modelValue="todo.completed"
-          inputType="checkbox"
-        ></AppInput>
-      </div>
+      <AppInput
+        inputLabel="Completed: "
+        :inputId="'checkbox_' + todo.id"
+        v-model="todo.completed"
+        inputType="checkbox"
+      ></AppInput>
     </div>
     <div class="todo__btns">
       <AppButton @click="$emit('remove', todo)">Delete</AppButton>
