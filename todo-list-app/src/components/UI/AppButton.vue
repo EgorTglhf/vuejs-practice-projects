@@ -13,5 +13,6 @@ name: 'AppButton';
   color: teal;
   border: 1px solid teal;
   cursor: pointer;
+  outline: none;
 }
 </style>

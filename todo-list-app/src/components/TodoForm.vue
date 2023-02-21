@@ -5,7 +5,7 @@
       v-focus
       v-model="todo.title"
       inputType="text"
-      inputPlaceholder="Name"
+      inputPlaceholder="Todo..."
     />
     <AppButton class="btn__form" @click="createTodo">Create</AppButton>
   </form>
