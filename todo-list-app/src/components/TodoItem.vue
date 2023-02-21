@@ -1,6 +1,6 @@
 <template>
   <div class="todo">
-    <div>
+    <div class="todo__content">
       <div><strong>Todo:</strong> {{ todo.title }}</div>
       <AppInput
         inputLabel="Completed: "
@@ -33,5 +33,10 @@ const props = defineProps({
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.todo__content {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 15px;
 }
 </style>

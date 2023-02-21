@@ -7,6 +7,7 @@
       inputType="text"
       inputPlaceholder="Todo..."
     />
+    <AppSelect v-model="todo.priority" :options="priorityOptions"></AppSelect>
     <AppButton class="btn__form" @click="createTodo">Create</AppButton>
   </form>
 </template>
@@ -20,8 +21,13 @@ const emit = defineEmits(['create']);
 //reactive variables
 const todo = ref({
   title: '',
-  body: '',
+  priority: '',
 });
+const priorityOptions = ref([
+  { value: 3, name: 'ASAP', color: 'red' },
+  { value: 2, name: 'Important', color: 'blue' },
+  { value: 1, name: 'Normal', color: 'green' },
+]);
 
 //methods
 function createTodo() {
@@ -38,10 +44,11 @@ function createTodo() {
 form {
   display: flex;
   flex-direction: column;
+  grid-gap: 15px;
 }
 
 .btn__form {
   align-self: flex-end;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 </style>

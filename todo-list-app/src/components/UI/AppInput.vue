@@ -6,13 +6,9 @@
     :value="modelValue"
     :placeholder="inputPlaceholder"
     @input="updateInput"
-    class="input input__text"
+    class="input__text"
   />
-  <label
-    class="input container"
-    v-else-if="inputType === 'checkbox'"
-    :for="inputId"
-  >
+  <label class="container" v-else-if="inputType === 'checkbox'" :for="inputId">
     <strong>{{ inputLabel }}</strong>
     <input
       :type="inputType"
@@ -60,10 +56,6 @@ function updateInputCheckbox(event) {
 </script>
 
 <style scoped>
-.input {
-  margin-top: 15px;
-}
-
 .input__text {
   border: 1px solid teal;
   padding: 10px 15px;

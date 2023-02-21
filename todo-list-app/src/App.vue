@@ -1,6 +1,5 @@
 <template>
   <div class="app">
-    <h1>Todo list</h1>
     <AppInput
       v-model="searchQuery"
       inputPlaceholder="Search..."

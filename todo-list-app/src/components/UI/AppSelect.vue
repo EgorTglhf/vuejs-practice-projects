@@ -32,7 +32,9 @@ function changeOption(event) {
 <style scoped>
 .slct {
   border: 1px solid teal;
+  color: teal;
   outline: none;
   cursor: pointer;
+  padding: 10px 12px;
 }
 </style>
