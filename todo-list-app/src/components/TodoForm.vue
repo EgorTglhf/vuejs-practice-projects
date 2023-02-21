@@ -43,5 +43,6 @@ form {
 .btn__form {
   align-self: flex-end;
   margin-top: 15px;
+  cursor: pointer;
 }
 </style>

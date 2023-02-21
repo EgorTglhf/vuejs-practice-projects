@@ -1,5 +1,5 @@
 <template>
-  <select :value="modelValue" @change="changeOption">
+  <select :value="modelValue" @change="changeOption" class="slct">
     <option disabled value="">Choose from lists</option>
     <option v-for="option in options" :key="option.value" :value="option.value">
       {{ option.name }}
@@ -29,4 +29,8 @@ function changeOption(event) {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.slct {
+  cursor: pointer;
+}
+</style>
