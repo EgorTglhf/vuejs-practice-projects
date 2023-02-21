@@ -1,29 +1,27 @@
 <template>
-  <form class="form_input">
+  <input
+    v-if="inputType === 'text'"
+    :id="inputId"
+    :type="inputType"
+    :value="modelValue"
+    :placeholder="inputPlaceholder"
+    @input="updateInput"
+    class="input input__text"
+  />
+  <label
+    class="input container"
+    v-else-if="inputType === 'checkbox'"
+    :for="inputId"
+  >
+    <strong>{{ inputLabel }}</strong>
     <input
-      v-if="inputType === 'text'"
-      :id="inputId"
       :type="inputType"
-      :value="modelValue"
-      :placeholder="inputPlaceholder"
-      @input="updateInput"
-      class="input input__text"
+      :checked="modelValue"
+      @change="updateInputCheckbox"
+      :id="inputId"
     />
-    <label
-      class="container"
-      v-else-if="inputType === 'checkbox'"
-      :for="inputId"
-    >
-      <strong>{{ inputLabel }}</strong>
-      <input
-        :type="inputType"
-        :checked="modelValue"
-        @change="updateInputCheckbox"
-        :id="inputId"
-      />
-      <span class="checkmark"></span>
-    </label>
-  </form>
+    <span class="checkmark"></span>
+  </label>
 </template>
 
 <script setup>
@@ -62,24 +60,20 @@ function updateInputCheckbox(event) {
 </script>
 
 <style scoped>
-.form_input {
-  display: flex;
+.input {
   margin-top: 15px;
 }
 
-.input {
+.input__text {
   border: 1px solid teal;
   padding: 10px 15px;
   outline-color: teal;
-}
-
-.input__text {
   width: 100%;
 }
 
 /* The container */
 .container {
-  display: block;
+  display: inline-block;
   position: relative;
   cursor: pointer;
   -webkit-user-select: none;
@@ -100,7 +94,6 @@ function updateInputCheckbox(event) {
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;
-  top: 0;
   height: 18px;
   width: 18px;
   background-color: #eee;
