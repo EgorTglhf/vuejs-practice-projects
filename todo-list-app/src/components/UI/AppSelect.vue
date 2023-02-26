@@ -1,7 +1,12 @@
 <template>
   <select :value="modelValue" @change="changeOption" class="slct">
-    <option disabled value="">Choose from lists</option>
-    <option v-for="option in options" :key="option.value" :value="option.value">
+    <option disabled hidden value=""><slot></slot></option>
+    <option
+      v-for="option in options"
+      :key="option.value"
+      :value="option.value"
+      :style="{ color: option.color }"
+    >
       {{ option.name }}
     </option>
   </select>

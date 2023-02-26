@@ -7,7 +7,9 @@
       inputType="text"
       inputPlaceholder="Todo..."
     />
-    <AppSelect v-model="todo.priority" :options="priorityOptions"></AppSelect>
+    <AppSelect v-model="todo.priority" :options="priorityOptions"
+      >Priority</AppSelect
+    >
     <AppButton class="btn__form" @click="createTodo">Create</AppButton>
   </form>
 </template>
@@ -49,6 +51,5 @@ form {
 
 .btn__form {
   align-self: flex-end;
-  /* margin-top: 15px; */
 }
 </style>

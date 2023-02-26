@@ -8,7 +8,9 @@
     ></AppInput>
     <div class="app__btns">
       <AppButton @click="showDialog">New Todo</AppButton>
-      <AppSelect v-model="selectedSort" :options="sortOptions"></AppSelect>
+      <AppSelect v-model="selectedSort" :options="sortOptions"
+        >Choose type of sort</AppSelect
+      >
     </div>
 
     <AppDialog v-model:show="dialogVisible">
