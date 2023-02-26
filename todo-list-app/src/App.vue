@@ -8,16 +8,21 @@
     ></AppInput>
     <div class="app__btns">
       <AppButton @click="showDialog">New Todo</AppButton>
-      <AppSelect v-model="selectedSort" :options="sortOptions"
-        >Choose type of sort</AppSelect
-      >
+      <div class="app__btns__right">
+        <AppButton @click="toggleIsHideCompleted">{{
+          buttonShowHideName
+        }}</AppButton>
+        <AppSelect v-model="selectedSort" :options="sortOptions"
+          >Choose type of sort</AppSelect
+        >
+      </div>
     </div>
 
     <AppDialog v-model:show="dialogVisible">
       <TodoForm @create="createTodo" />
     </AppDialog>
     <TodoList
-      :todos="sortedAndSearchedTodos"
+      :todos="sortedAndSearchedAndHidedTodos"
       @remove="removeTodo"
       v-if="!isTodosLoading"
     />
@@ -47,6 +52,7 @@ const sortOptions = ref([
   { value: 'priority', name: 'Sort on priority' },
 ]);
 const searchQuery = ref('');
+const isHideCompleted = ref(true);
 
 //methods
 function showDialog() {
@@ -78,12 +84,20 @@ async function loadTodos() {
   }
 }
 
+function toggleIsHideCompleted() {
+  isHideCompleted.value = !isHideCompleted.value;
+}
+
 //hooks
 onMounted(() => {
   loadTodos();
 });
 
 //computed variables
+const buttonShowHideName = computed(() => {
+  return (isHideCompleted.value ? 'Show' : 'Hide') + ' completed';
+});
+
 const sortedTodos = computed(() => {
   return [...todos.value].sort((todo1, todo2) => {
     return todo1[selectedSort.value]?.localeCompare(todo2[selectedSort.value]);
@@ -94,6 +108,12 @@ const sortedAndSearchedTodos = computed(() => {
   return sortedTodos.value.filter((todo) =>
     todo.title.toLowerCase().includes(searchQuery.value.toLowerCase())
   );
+});
+
+const sortedAndSearchedAndHidedTodos = computed(() => {
+  return isHideCompleted.value
+    ? sortedAndSearchedTodos.value.filter((todo) => todo.completed !== true)
+    : sortedAndSearchedTodos.value;
 });
 </script>
 
@@ -106,5 +126,10 @@ const sortedAndSearchedTodos = computed(() => {
   display: flex;
   justify-content: space-between;
   margin: 15px 0;
+}
+
+.app__btns__right {
+  display: flex;
+  gap: 15px;
 }
 </style>
