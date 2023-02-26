@@ -16,8 +16,10 @@
 
 <script setup>
 //imports
-import { ref, defineEmits } from 'vue';
+import { ref, defineEmits, computed } from 'vue';
+import { useStore } from 'vuex';
 
+const store = useStore();
 const emit = defineEmits(['create']);
 
 //reactive variables
@@ -25,11 +27,11 @@ const todo = ref({
   title: '',
   priority: '',
 });
-const priorityOptions = ref([
-  { value: 3, name: 'ASAP', color: 'red' },
-  { value: 2, name: 'Important', color: 'blue' },
-  { value: 1, name: 'Normal', color: 'green' },
-]);
+
+//computed
+const priorityOptions = computed(() => {
+  return store.state.priorityOptions;
+});
 
 //methods
 function createTodo() {
@@ -37,7 +39,7 @@ function createTodo() {
   emit('create', todo.value);
   todo.value = {
     title: '',
-    body: '',
+    priority: '',
   };
 }
 </script>

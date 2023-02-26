@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import components from './components/UI';
 import directives from './directives';
+import store from './store';
 
 import './assets/main.css';
 
@@ -15,4 +16,4 @@ directives.forEach((directive) => {
   app.directive(directive.name, directive);
 });
 
-app.mount('#app');
+app.use(store).mount('#app');

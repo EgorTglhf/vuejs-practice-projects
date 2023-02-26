@@ -44,7 +44,7 @@ const isTodosLoading = ref(false);
 const selectedSort = ref('');
 const sortOptions = ref([
   { value: 'title', name: 'Sort on name' },
-  { value: 'body', name: 'Sort on priority' },
+  { value: 'priority', name: 'Sort on priority' },
 ]);
 const searchQuery = ref('');
 
