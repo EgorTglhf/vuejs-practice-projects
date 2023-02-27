@@ -26,6 +26,7 @@ const emit = defineEmits(['create']);
 const todo = ref({
   title: '',
   priority: '',
+  completed: false,
 });
 
 //computed

@@ -32,10 +32,10 @@
 
 <script setup>
 //imports
-import axios from 'axios';
+//import axios from 'axios';
 import TodoForm from './components/TodoForm.vue';
 import TodoList from './components/TodoList.vue';
-import { ref, onMounted, computed } from 'vue';
+import { ref, onMounted, computed, watch } from 'vue';
 
 //variables
 const TODOS_URL = new URL(
@@ -73,20 +73,31 @@ function removeTodo(todo) {
 }
 
 async function loadTodos() {
-  try {
-    isTodosLoading.value = true;
-    const response = await axios.get(TODOS_URL);
-    todos.value = response.data;
-  } catch (error) {
-    alert('Could not fetch todos');
-  } finally {
-    isTodosLoading.value = false;
-  }
+  const todosArr = localStorage.getItem('todos');
+  todos.value = JSON.parse(todosArr) || [];
+  // try {
+  //   isTodosLoading.value = true;
+  //   const response = await axios.get(TODOS_URL);
+  //   todos.value = response.data;
+  // } catch (error) {
+  //   alert('Could not fetch todos');
+  // } finally {
+  //   isTodosLoading.value = false;
+  // }
 }
 
 function toggleIsHideCompleted() {
   isHideCompleted.value = !isHideCompleted.value;
 }
+
+//watchers
+watch(
+  todos,
+  (todosNew) => {
+    localStorage.setItem('todos', JSON.stringify(todosNew));
+  },
+  { deep: true }
+);
 
 //hooks
 onMounted(() => {
