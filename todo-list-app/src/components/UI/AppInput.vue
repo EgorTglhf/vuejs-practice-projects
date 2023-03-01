@@ -57,10 +57,11 @@ function updateInputCheckbox(event) {
 
 <style scoped>
 .input__text {
-  border: 1px solid teal;
+  border: 1px solid var(--color-border);
   padding: 10px 15px;
-  outline-color: teal;
+  outline-color: var(--color-border);
   width: 100%;
+  background: var(--color-background-soft);
 }
 
 /* The container */
@@ -98,7 +99,7 @@ function updateInputCheckbox(event) {
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: teal;
+  background-color: var(--vt-c-green);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */

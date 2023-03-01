@@ -10,8 +10,8 @@ name: 'AppButton';
 .btn {
   padding: 10px 15px;
   background: none;
-  color: teal;
-  border: 1px solid teal;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
   cursor: pointer;
   outline: none;
 }

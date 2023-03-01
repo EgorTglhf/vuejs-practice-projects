@@ -36,10 +36,11 @@ function changeOption(event) {
 
 <style scoped>
 .slct {
-  border: 1px solid teal;
-  color: teal;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
   outline: none;
   cursor: pointer;
   padding: 10px 12px;
+  background-color: var(--color-background-soft);
 }
 </style>
