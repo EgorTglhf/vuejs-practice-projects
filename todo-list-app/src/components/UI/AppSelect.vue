@@ -1,6 +1,8 @@
 <template>
-  <select :value="modelValue" @change="changeOption" class="slct">
-    <option disabled hidden value=""><slot></slot></option>
+  <select required :value="modelValue" @change="changeOption" class="slct">
+    <option disabled hidden value="">
+      <slot></slot>
+    </option>
     <option
       v-for="option in options"
       :key="option.value"
@@ -44,5 +46,9 @@ function changeOption(event) {
   background-color: var(--color-background-item);
   box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
     0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+select:invalid {
+  color: #a9a9a9;
 }
 </style>

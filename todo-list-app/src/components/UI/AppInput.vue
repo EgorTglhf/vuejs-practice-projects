@@ -66,6 +66,10 @@ function updateInputCheckbox(event) {
     0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+::placeholder {
+  color: #a9a9a9;
+}
+
 /* The container */
 .container {
   display: inline-block;
