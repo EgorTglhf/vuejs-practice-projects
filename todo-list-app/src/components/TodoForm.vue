@@ -2,7 +2,6 @@
   <form @submit.prevent>
     <h4>Create todo</h4>
     <AppInput
-      v-focus
       v-model="todo.title"
       inputType="text"
       inputPlaceholder="Todo..."

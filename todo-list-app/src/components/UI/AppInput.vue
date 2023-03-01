@@ -57,13 +57,17 @@ function updateInputCheckbox(event) {
 
 <style scoped>
 .input__text {
-  border: 0px solid var(--color-border);
+  border: 1px solid transparent;
   padding: 10px 15px;
-  outline-color: var(--color-border);
+  outline: none;
   width: 100%;
   background: var(--color-background-item);
   box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
     0 4px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.input__text:focus {
+  border: 1px solid var(--color-border);
 }
 
 ::placeholder {
