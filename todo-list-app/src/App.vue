@@ -35,20 +35,23 @@
 import TodoForm from './components/TodoForm.vue';
 import TodoList from './components/TodoList.vue';
 import { useTodos } from './hooks/useTodos';
+import { useSortedTodos } from './hooks/useSortedTodos';
+import { useSortedAndSearchedTodos } from './hooks/useSortedAndSearchedTodos';
 import { ref, computed, watch } from 'vue';
 
 //reactive variables
 const dialogVisible = ref(false);
-const selectedSort = ref('');
 const sortOptions = ref([
   { value: 'title', name: 'Sort on name' },
   { value: 'priority', name: 'Sort on priority' },
 ]);
-const searchQuery = ref('');
 const isHideCompleted = ref(true);
 
 //variables from modules
 const { todos, isTodosLoading } = useTodos();
+const { selectedSort, sortedTodos } = useSortedTodos(todos);
+const { searchQuery, sortedAndSearchedTodos } =
+  useSortedAndSearchedTodos(sortedTodos);
 
 //methods
 function showDialog() {
@@ -84,18 +87,6 @@ watch(
 //computed variables
 const buttonShowHideName = computed(() => {
   return (isHideCompleted.value ? 'Show' : 'Hide') + ' completed';
-});
-
-const sortedTodos = computed(() => {
-  return [...todos.value].sort((todo1, todo2) => {
-    return todo1[selectedSort.value]?.localeCompare(todo2[selectedSort.value]);
-  });
-});
-
-const sortedAndSearchedTodos = computed(() => {
-  return sortedTodos.value.filter((todo) =>
-    todo.title.toLowerCase().includes(searchQuery.value.toLowerCase())
-  );
 });
 
 const sortedAndSearchedAndHidedTodos = computed(() => {
