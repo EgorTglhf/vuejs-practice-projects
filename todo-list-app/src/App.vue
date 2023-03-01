@@ -37,6 +37,7 @@ import TodoList from './components/TodoList.vue';
 import { useTodos } from './hooks/useTodos';
 import { useSortedTodos } from './hooks/useSortedTodos';
 import { useSortedAndSearchedTodos } from './hooks/useSortedAndSearchedTodos';
+import { useSortedAndSearchedAndHidedTodos } from './hooks/useSortedAndSearchedAndHidedTodos';
 import { ref, computed, watch } from 'vue';
 
 //reactive variables
@@ -45,13 +46,14 @@ const sortOptions = ref([
   { value: 'title', name: 'Sort on name' },
   { value: 'priority', name: 'Sort on priority' },
 ]);
-const isHideCompleted = ref(true);
 
 //variables from modules
 const { todos, isTodosLoading } = useTodos();
 const { selectedSort, sortedTodos } = useSortedTodos(todos);
 const { searchQuery, sortedAndSearchedTodos } =
   useSortedAndSearchedTodos(sortedTodos);
+const { isHideCompleted, sortedAndSearchedAndHidedTodos } =
+  useSortedAndSearchedAndHidedTodos(sortedAndSearchedTodos);
 
 //methods
 function showDialog() {
@@ -87,12 +89,6 @@ watch(
 //computed variables
 const buttonShowHideName = computed(() => {
   return (isHideCompleted.value ? 'Show' : 'Hide') + ' completed';
-});
-
-const sortedAndSearchedAndHidedTodos = computed(() => {
-  return isHideCompleted.value
-    ? sortedAndSearchedTodos.value.filter((todo) => todo.completed !== true)
-    : sortedAndSearchedTodos.value;
 });
 </script>
 
