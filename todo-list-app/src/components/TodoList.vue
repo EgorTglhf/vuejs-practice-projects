@@ -1,6 +1,6 @@
 <template>
   <div v-if="todos.length > 0">
-    <h4>List of todos</h4>
+    <h2>List of todos</h2>
     <TransitionGroup name="todo-list">
       <TodoItem
         v-for="todo in todos"

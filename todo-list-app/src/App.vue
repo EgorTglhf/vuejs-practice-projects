@@ -12,8 +12,8 @@
         <AppButton @click="toggleIsHideCompleted">{{
           buttonShowHideName
         }}</AppButton>
-        <AppSelect v-model="selectedSort" :options="sortOptions"
-          >Choose type of sort</AppSelect
+        <AppSelectButton v-model="selectedSort" :options="sortOptions"
+          >Choose type of sort</AppSelectButton
         >
       </div>
     </div>

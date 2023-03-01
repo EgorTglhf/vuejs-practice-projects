@@ -1,5 +1,5 @@
 <template>
-  <select :value="modelValue" @change="changeOption" class="slct">
+  <select :value="modelValue" @change="changeOption" class="slct__btn">
     <option disabled hidden value=""><slot></slot></option>
     <option
       v-for="option in options"
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-name: 'AppSelect';
+name: 'AppSelectButton';
 
 const emit = defineEmits(['update:modelValue']);
 
@@ -35,13 +35,18 @@ function changeOption(event) {
 </script>
 
 <style scoped>
-.slct {
-  border: 0px solid var(--color-border);
+.slct__btn {
+  padding: 10px 15px;
+  background: none;
+  background-color: var(--color-background-detail);
   color: var(--color-text);
-  outline: none;
+  border: 1px solid var(--color-border);
   cursor: pointer;
-  padding: 10px 12px;
-  background-color: var(--color-background-item);
+  outline: none;
+  font-weight: bold;
+}
+
+.slct__btn:hover {
   box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
     0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }

@@ -57,11 +57,13 @@ function updateInputCheckbox(event) {
 
 <style scoped>
 .input__text {
-  border: 1px solid var(--color-border);
+  border: 0px solid var(--color-border);
   padding: 10px 15px;
   outline-color: var(--color-border);
   width: 100%;
-  background: var(--color-background-soft);
+  background: var(--color-background-item);
+  box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
+    0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* The container */
@@ -89,17 +91,17 @@ function updateInputCheckbox(event) {
   position: absolute;
   height: 18px;
   width: 18px;
-  background-color: #eee;
+  background-color: var(--color-background-soft);
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color: var(--color-background-detail);
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: var(--vt-c-green);
+  background-color: var(--color-background-detail);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -120,7 +122,7 @@ function updateInputCheckbox(event) {
   top: 0px;
   width: 5px;
   height: 10px;
-  border: solid white;
+  border: solid var(--color-text);
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);

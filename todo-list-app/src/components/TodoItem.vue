@@ -43,11 +43,14 @@ const todoPriorityName = computed(() => {
 <style scoped>
 .todo {
   padding: 15px;
-  border: 2px solid var(--color-border);
+  border: 0px solid var(--color-border);
+  background-color: var(--color-background-item);
   margin-top: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
+    0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .todo__content {
   display: flex;
