@@ -32,20 +32,13 @@
 
 <script setup>
 //imports
-//import axios from 'axios';
 import TodoForm from './components/TodoForm.vue';
 import TodoList from './components/TodoList.vue';
-import { ref, onMounted, computed, watch } from 'vue';
-
-//variables
-const TODOS_URL = new URL(
-  'https://jsonplaceholder.typicode.com/todos?_limit=5'
-);
+import { useTodos } from './hooks/useTodos';
+import { ref, computed, watch } from 'vue';
 
 //reactive variables
-const todos = ref([]);
 const dialogVisible = ref(false);
-const isTodosLoading = ref(false);
 const selectedSort = ref('');
 const sortOptions = ref([
   { value: 'title', name: 'Sort on name' },
@@ -53,6 +46,9 @@ const sortOptions = ref([
 ]);
 const searchQuery = ref('');
 const isHideCompleted = ref(true);
+
+//variables from modules
+const { todos, isTodosLoading } = useTodos();
 
 //methods
 function showDialog() {
@@ -72,20 +68,6 @@ function removeTodo(todo) {
   todos.value = todos.value.filter((t) => t.id !== todo.id);
 }
 
-async function loadTodos() {
-  const todosArr = localStorage.getItem('todos');
-  todos.value = JSON.parse(todosArr) || [];
-  // try {
-  //   isTodosLoading.value = true;
-  //   const response = await axios.get(TODOS_URL);
-  //   todos.value = response.data;
-  // } catch (error) {
-  //   alert('Could not fetch todos');
-  // } finally {
-  //   isTodosLoading.value = false;
-  // }
-}
-
 function toggleIsHideCompleted() {
   isHideCompleted.value = !isHideCompleted.value;
 }
@@ -98,11 +80,6 @@ watch(
   },
   { deep: true }
 );
-
-//hooks
-onMounted(() => {
-  loadTodos();
-});
 
 //computed variables
 const buttonShowHideName = computed(() => {
