@@ -97,18 +97,15 @@ function updateInputCheckbox(event) {
 /* Create a custom checkbox */
 .checkmark {
   position: absolute;
-  height: 18px;
-  width: 18px;
-  background-color: var(--color-background-soft);
+  height: 15px;
+  width: 15px;
+  margin-top: 5px;
+  margin-left: 5px;
+  border: 1px solid var(--color-border);
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-  background-color: var(--color-background-detail);
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
   background-color: var(--color-background-detail);
 }
 
@@ -127,9 +124,9 @@ function updateInputCheckbox(event) {
 /* Style the checkmark/indicator */
 .container .checkmark:after {
   left: 5px;
-  top: 0px;
+  bottom: 4px;
   width: 5px;
-  height: 10px;
+  height: 15px;
   border: solid var(--color-text);
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
