@@ -2,6 +2,7 @@
   <form @submit.prevent>
     <h4>Create todo</h4>
     <AppInput
+      required
       v-focus
       v-model="todo.title"
       inputType="text"
@@ -33,15 +34,33 @@ const todo = ref({
 const priorityOptions = computed(() => {
   return store.state.priorityOptions;
 });
+const isEmptyFields = computed(() => {
+  return {
+    title: !todo.value.title,
+    priority: !todo.value.priority,
+  };
+});
 
 //methods
 function createTodo() {
+  if (!checkTodoFields()) return;
+
   todo.value.id = Date.now();
   emit('create', todo.value);
   todo.value = {
     title: '',
     priority: '',
   };
+}
+
+function checkTodoFields() {
+  let isOk = true;
+  for (const field in isEmptyFields.value) {
+    if (isEmptyFields.value[field]) {
+      isOk = false;
+    }
+  }
+  return isOk;
 }
 </script>
 
