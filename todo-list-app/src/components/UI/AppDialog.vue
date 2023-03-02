@@ -35,7 +35,7 @@ function hideDialog() {
 .dialog__content {
   margin: auto;
   background: var(--color-background-soft);
-  border-radius: 12px;
+  border-radius: var(--border-radius-background);
   min-height: 50px;
   min-width: 300px;
   padding: 20px;

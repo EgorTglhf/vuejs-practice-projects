@@ -28,6 +28,8 @@
   --color-text: var(--td-a-text-light);
 
   --section-gap: 160px;
+  --border-radius-element: 20px;
+  --border-radius-background: 12px;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -44,6 +44,7 @@ function changeOption(event) {
   cursor: pointer;
   outline: none;
   font-weight: bold;
+  border-radius: var(--border-radius-element);
 }
 
 .slct__btn:hover {

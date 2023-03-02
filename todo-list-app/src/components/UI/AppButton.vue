@@ -16,6 +16,7 @@ name: 'AppButton';
   cursor: pointer;
   outline: none;
   font-weight: bold;
+  border-radius: var(--border-radius-element);
 }
 
 .btn:hover {

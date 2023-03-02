@@ -64,6 +64,7 @@ function updateInputCheckbox(event) {
   background: var(--color-background-item);
   box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
     0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: var(--border-radius-element);
 }
 
 .input__text:focus {
@@ -102,6 +103,7 @@ function updateInputCheckbox(event) {
   margin-top: 5px;
   margin-left: 5px;
   border: 1px solid var(--color-border);
+  border-radius: 1px;
 }
 
 /* On mouse-over, add a grey background color */
