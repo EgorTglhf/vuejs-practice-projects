@@ -68,7 +68,7 @@ function checkTodoFields() {
 form {
   display: flex;
   flex-direction: column;
-  grid-gap: 15px;
+  grid-gap: var(--section-gap);
 }
 
 .btn__form {

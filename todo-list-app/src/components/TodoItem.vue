@@ -42,20 +42,20 @@ const todoPriorityName = computed(() => {
 
 <style scoped>
 .todo {
-  padding: 15px;
+  padding: var(--section-padding-2);
   border: 0px solid var(--color-border);
   background-color: var(--color-background-item);
-  margin-top: 15px;
+  margin-top: var(--section-margin);
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: var(--border-radius-background);
-  box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
-    0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 6px 16px 0px var(--color-shadow-1),
+    0 4px 20px 0 var(--color-shadow-2);
 }
 .todo__content {
   display: flex;
   flex-direction: column;
-  grid-gap: 15px;
+  grid-gap: var(--section-margin);
 }
 </style>

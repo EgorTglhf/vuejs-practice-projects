@@ -36,7 +36,7 @@ function changeOption(event) {
 
 <style scoped>
 .slct__btn {
-  padding: 10px 15px;
+  padding: var(--section-padding-1) var(--section-padding-2);
   background: none;
   background-color: var(--color-background-detail);
   color: var(--color-text);
@@ -48,7 +48,7 @@ function changeOption(event) {
 }
 
 .slct__btn:hover {
-  box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
-    0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 6px 16px 0px var(--color-shadow-1),
+    0 4px 20px 0 var(--color-shadow-2);
 }
 </style>

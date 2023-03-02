@@ -99,18 +99,18 @@ const buttonShowHideName = computed(() => {
   border-radius: var(--border-radius-background);
   font-weight: normal;
   background-color: var(--color-background-soft);
-  box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
-    0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 6px 16px 0px var(--color-shadow-1),
+    0 4px 20px 0 var(--color-shadow-2);
 }
 
 .app__btns {
   display: flex;
   justify-content: space-between;
-  margin: 15px 0;
+  margin: var(--section-margin) 0;
 }
 
 .app__btns__right {
   display: flex;
-  gap: 15px;
+  gap: var(--section-gap);
 }
 </style>

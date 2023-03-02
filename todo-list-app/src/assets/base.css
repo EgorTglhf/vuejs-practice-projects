@@ -1,45 +1,59 @@
 :root {
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
+  /* light theme colors */
+  --td-a-black-grey: #414141; /* text */
+  --td-a-turquoise-rude: #3c7369; /* border */
+  --td-a-turquoise: #7dcfc1; /* btn background */
+  --td-a-turquoise-soft: #cdf0f0; /* app background */
+  --td-a-pink: #ffe6e1; /* item&input background */
+  --td-a-pink-soft: #fcf0ee; /* main background */
+  --td-a-black-shadow-1: rgba(0, 0, 0, 0.16); /* shadow-1 */
+  --td-a-black-shadow-2: rgba(0, 0, 0, 0.19); /* shadow-2 */
 
-  /* 2 */
-  --td-a-black-grey: #414141;
-  --td-a-turquoise-rude: #3c7369;
-  --td-a-turquoise: #7dcfc1;
-  --td-a-turquoise-soft: #cdf0f0;
-  --td-a-pink: #ffe6e1;
-  --td-a-pink-soft: #fcf0ee;
-
-  --td-a-divider-light: var(--td-a-turquoise-rude);
-  --vt-c-divider-dark: rgba(84, 84, 84, 0.48);
-
-  --td-a-text-light: var(--td-a-black-grey);
-  --vt-c-text-dark: rgba(235, 235, 235, 0.64);
+  /* dark theme colors */
+  --td-a-dark-blue: #004173; /* app background */
+  --td-a-midnight: #191e37; /* item&input background */
+  --td-a-black: #19172d; /* main background */
+  --td-a-purple: #654589; /* btn background */
+  --td-a-grey: #cdd7cf; /* border color */
+  --td-a-grey2: #cdd7cf; /* text color */
+  --td-a-purple-shadow-1: rgba(157, 0, 193, 0.5); /* shadow-1 */
+  --td-a-purple-shadow-2: rgba(101, 69, 137, 0.6); /* shadow-2 */
 }
 
 :root {
-  --color-background: var(--td-a-pink-soft);
-  --color-background-soft: var(--td-a-turquoise-soft);
-  --color-background-detail: var(--td-a-turquoise);
-  --color-background-item: var(--td-a-pink);
+  --color-background: var(--td-a-pink-soft); /* main background */
+  --color-background-soft: var(--td-a-turquoise-soft); /* app background */
+  --color-background-detail: var(--td-a-turquoise); /* btn background */
+  --color-background-item: var(--td-a-pink); /* item&input background */
 
-  --color-border: var(--td-a-divider-light);
+  --color-border: var(--td-a-turquoise-rude); /* border */
 
-  --color-text: var(--td-a-text-light);
+  --color-text: var(--td-a-black-grey); /* text */
 
-  --section-gap: 160px;
+  --color-shadow-1: var(--td-a-black-shadow-1); /* shadow-1 */
+  --color-shadow-2: var(--td-a-black-shadow-2); /* shadow-2 */
+
+  --section-gap: 15px;
+  --section-margin: 15px;
+  --section-padding-1: 10px;
+  --section-padding-2: 15px;
   --border-radius-element: 20px;
   --border-radius-background: 12px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-background: var(--vt-c-black);
-    --color-background-soft: var(--vt-c-black-soft);
+    --color-background: var(--td-a-black); /* main background */
+    --color-background-soft: var(--td-a-dark-blue); /* app background */
+    --color-background-detail: var(--td-a-purple); /* btn background */
+    --color-background-item: var(--td-a-midnight); /* item&input background */
 
-    --color-border: var(--vt-c-divider-dark);
+    --color-shadow-1: var(--td-a-purple-shadow-1); /* shadow-1 */
+    --color-shadow-2: var(--td-a-purple-shadow-2); /* shadow-2 */
 
-    --color-text: var(--vt-c-text-dark);
+    --color-border: var(--td-a-grey); /* border color */
+
+    --color-text: var(--td-a-grey2); /* text color */
   }
 }
 

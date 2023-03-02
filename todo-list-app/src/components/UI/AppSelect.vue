@@ -44,8 +44,8 @@ function changeOption(event) {
   cursor: pointer;
   padding: 10px 12px;
   background-color: var(--color-background-item);
-  box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
-    0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 6px 16px 0px var(--color-shadow-1),
+    0 4px 20px 0 var(--color-shadow-2);
   border-radius: var(--border-radius-element);
 }
 
