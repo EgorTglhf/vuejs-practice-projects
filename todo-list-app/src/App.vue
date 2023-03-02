@@ -94,7 +94,13 @@ const buttonShowHideName = computed(() => {
 
 <style scoped>
 .app {
-  padding: 20px;
+  padding: 30px;
+  margin: auto;
+  border-radius: var(--border-radius-background);
+  font-weight: normal;
+  background-color: var(--color-background-soft);
+  box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
+    0 4px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .app__btns {

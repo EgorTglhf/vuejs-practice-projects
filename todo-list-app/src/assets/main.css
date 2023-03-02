@@ -9,11 +9,6 @@
 #app {
   max-width: 850px;
   min-width: 550px;
-  margin: 5vh auto;
-  padding: 2rem;
-  border-radius: var(--border-radius-background);
-  font-weight: normal;
-  background-color: var(--color-background-soft);
-  box-shadow: 0 6px 16px 0px rgba(0, 0, 0, 0.16),
-    0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 30px;
+  margin: auto;
 }
