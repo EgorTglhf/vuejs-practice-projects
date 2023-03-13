@@ -1,11 +1,9 @@
 <template>
-  <v-container fluid>
-    <v-app-bar color="orange">
-      <v-spacer />
-      <v-btn variant="outlined" class="ml-3">Main</v-btn>
-      <v-btn variant="outlined" class="ml-3">Photos</v-btn>
-    </v-app-bar>
-  </v-container>
+  <v-app-bar color="orange" absolute>
+    <v-spacer />
+    <v-btn class="mx-4" elevation="2" x-large to="/">Main </v-btn>
+    <v-btn class="mx-4" elevation="2" x-large to="/photo">Photos </v-btn>
+  </v-app-bar>
 </template>
 
 <script>
