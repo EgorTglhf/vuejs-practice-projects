@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar color="orange" absolute>
+  <v-app-bar color="cyan" absolute>
     <v-spacer />
     <v-btn class="mx-4" elevation="2" x-large to="/">Main </v-btn>
     <v-btn class="mx-4" elevation="2" x-large to="/photo">Photos </v-btn>
