@@ -1,6 +1,6 @@
 <template>
   <v-dialog
-    v-model="$store.getters.getDialogVisible"
+    :model-value="$store.getters.getDialogVisible"
     max-width="600"
     @click:outside="$store.commit('hideDialog')"
   >
