@@ -4,9 +4,9 @@
       <PhotoForm v-if="photos.length < 11" @addPhoto="addPhoto" />
       <div v-else>You cannot add more photos</div>
       <v-row>
-        <Photo v-for="photo in $store.getters.getAllPhotos" :photo="photo" @openPhoto="openPhoto" />
+        <Photo v-for="photo in $store.getters.getAllPhotos" :photo="photo" />
       </v-row>
-      <PhotoDialog :photo="currentPhoto" v-model="dialogVisible" />
+      <PhotoDialog />
     </v-container>
   </v-main>
 </template>
@@ -15,19 +15,18 @@
 import Photo from '../components/photo/Photo.vue'
 import PhotoForm from '../components/photo/PhotoForm.vue'
 import PhotoDialog from '../components/photo/PhotoDialog.vue'
-import { toHandlers } from 'vue'
+import { mapActions } from 'vuex'
 
 export default {
   components: { Photo, PhotoForm, PhotoDialog },
   data: () => ({
-    photos: [],
-    currentPhoto: {},
-    dialogVisible: false
+    photos: []
   }),
   mounted() {
-    this.$store.dispatch('fetchPhotos')
+    this.fetchPhotos()
   },
   methods: {
+    ...mapActions(['fetchPhotos']),
     addPhoto(photo) {
       this.photos.push(photo)
     },
