@@ -2,7 +2,7 @@
   <v-main>
     <v-container>
       <PhotoForm v-if="$store.getters.getAllPhotos.length < 11" />
-      <div v-else>You cannot add more photos</div>
+      <div v-else class="mb-12">You cannot to add more photos</div>
       <v-row>
         <Photo v-for="photo in $store.getters.getAllPhotos" :photo="photo" />
       </v-row>
