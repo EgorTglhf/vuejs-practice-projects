@@ -21,6 +21,9 @@ export default {
     },
     addPhoto(state, payload) {
       state.photos.push(payload)
+    },
+    deletePhoto(state, payload) {
+      state.photos = state.photos.filter((photo) => photo.id !== payload.id)
     }
   },
   getters: {

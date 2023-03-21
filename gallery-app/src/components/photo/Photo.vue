@@ -7,7 +7,9 @@
       </v-card-text>
       <v-card-actions>
         <v-btn color="green"><v-icon icon="mdi-checkbox-marked-circle"></v-icon>Primary</v-btn>
-        <v-btn class="ml-auto" color="red"><v-icon icon="mdi-cancel"></v-icon></v-btn>
+        <v-btn class="ml-auto" color="red" @click="deletePhoto"
+          ><v-icon icon="mdi-cancel"></v-icon
+        ></v-btn>
       </v-card-actions>
     </v-card>
   </v-col>
@@ -28,6 +30,9 @@ export default {
     openPhoto() {
       this.setCurrentPhoto(this.photo)
       this.showDialog()
+    },
+    deletePhoto() {
+      this.$store.commit('deletePhoto', this.photo)
     }
   }
 }
