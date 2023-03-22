@@ -21,9 +21,13 @@ export default {
         let photo = {
           id: Date.now(),
           title: this.title,
-          url: reader.result
+          url: reader.result,
+          primary_flg: false
         }
         this.$store.commit('addPhoto', photo)
+
+        this.title = ''
+        this.img = []
       }
       reader.readAsDataURL(this.img[0])
     }

@@ -6,7 +6,9 @@
         <v-img :src="photo.url" width="200" height="200" />
       </v-card-text>
       <v-card-actions>
-        <v-btn color="green"><v-icon icon="mdi-checkbox-marked-circle"></v-icon>Primary</v-btn>
+        <v-btn color="green" @click="setPrimary"
+          >Primary<v-icon v-if="photo.primary_flg" icon="mdi-checkbox-marked-circle"></v-icon
+        ></v-btn>
         <v-btn class="ml-auto" color="red" @click="deletePhoto"
           ><v-icon icon="mdi-cancel"></v-icon
         ></v-btn>
@@ -26,13 +28,16 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(['setCurrentPhoto', 'showDialog']),
+    ...mapMutations(['setCurrentPhoto', 'showDialog', 'savePhotos', 'setPrimaryPhoto']),
     openPhoto() {
       this.setCurrentPhoto(this.photo)
       this.showDialog()
     },
     deletePhoto() {
       this.$store.commit('deletePhoto', this.photo)
+    },
+    setPrimary() {
+      this.setPrimaryPhoto(this.photo)
     }
   }
 }

@@ -29,6 +29,14 @@ export default {
     },
     savePhotos(state) {
       localStorage.setItem('photos', JSON.stringify(state.photos))
+    },
+    setPrimaryPhoto(state, payload) {
+      const primary_photo = state.photos.find(
+        (photo) => photo.primary_flg === true && photo.id !== payload.id
+      )
+      if (primary_photo) primary_photo.primary_flg = false
+      payload.primary_flg = !payload.primary_flg
+      this.commit('savePhotos', state)
     }
   },
   getters: {
