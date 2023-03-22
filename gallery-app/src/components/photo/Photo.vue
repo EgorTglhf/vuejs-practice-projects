@@ -1,9 +1,9 @@
 <template>
   <v-col cols="4">
-    <v-card>
+    <v-card elevation="18">
       <v-card-title>{{ photo.title }}</v-card-title>
       <v-card-text @click="openPhoto">
-        <v-img :src="photo.url" width="200" height="200" />
+        <v-img :src="photo.url" width="350" height="250" />
       </v-card-text>
       <v-card-actions>
         <v-btn color="green" @click="setPrimary"
@@ -47,4 +47,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
