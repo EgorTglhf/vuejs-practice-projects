@@ -21,9 +21,14 @@ export default {
     },
     addPhoto(state, payload) {
       state.photos.push(payload)
+      this.commit('savePhotos')
     },
     deletePhoto(state, payload) {
       state.photos = state.photos.filter((photo) => photo.id !== payload.id)
+      this.commit('savePhotos', state)
+    },
+    savePhotos(state) {
+      localStorage.setItem('photos', JSON.stringify(state.photos))
     }
   },
   getters: {
@@ -38,6 +43,10 @@ export default {
       axios
         .get('https://jsonplaceholder.typicode.com/photos?_limit=10')
         .then((response) => context.commit('setPhotos', response.data))
+    },
+    loadPhotos(context) {
+      const photoJSON = localStorage.getItem('photos')
+      context.commit('setPhotos', JSON.parse(photoJSON) || [])
     }
   }
 }

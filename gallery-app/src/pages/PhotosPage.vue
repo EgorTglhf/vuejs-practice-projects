@@ -20,10 +20,11 @@ import { mapActions } from 'vuex'
 export default {
   components: { Photo, PhotoForm, PhotoDialog },
   mounted() {
-    this.fetchPhotos()
+    //this.fetchPhotos()
+    this.loadPhotos()
   },
   methods: {
-    ...mapActions(['fetchPhotos']),
+    ...mapActions(['loadPhotos']),
     openPhoto(photo) {
       this.currentPhoto = photo
       this.dialogVisible = true
