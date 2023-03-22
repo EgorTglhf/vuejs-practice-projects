@@ -7,7 +7,11 @@
       </v-card-text>
       <v-card-actions>
         <v-btn color="green" @click="setPrimary"
-          >Primary<v-icon v-if="photo.primary_flg" icon="mdi-checkbox-marked-circle"></v-icon
+          >Primary<v-icon
+            color="green"
+            :style="{ visibility: photo.primary_flg ? 'visible' : 'hidden' }"
+            icon="mdi-checkbox-marked-circle"
+          ></v-icon
         ></v-btn>
         <v-btn class="ml-auto" color="red" @click="deletePhoto"
           ><v-icon icon="mdi-cancel"></v-icon
