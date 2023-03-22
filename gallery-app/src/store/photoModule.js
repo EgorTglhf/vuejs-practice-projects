@@ -43,6 +43,9 @@ export default {
     getAllPhotos(state) {
       return state.photos
     },
+    getPrimaryPhoto(state) {
+      return state.photos.find((photo) => photo.primary_flg === true)
+    },
     getDialogVisible: (state) => state.dialogVisible,
     getCurrentPhoto: (state) => state.currentPhoto
   },
