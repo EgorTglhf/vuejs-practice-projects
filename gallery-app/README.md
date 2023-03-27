@@ -1,6 +1,6 @@
 # gallery-app
 
-Gallery app with 2 page by using vue router, vuex and vuetify
+Gallery app with 2 page by using vue router, vuex and vuetify.
 Main page is a page with parallax effect by using vutify and custom css animation.
 Photos page is a page with feature to upload (add) photos, to delete, to mark as primary (for background Main page), to raise dialog box with photo.
 
