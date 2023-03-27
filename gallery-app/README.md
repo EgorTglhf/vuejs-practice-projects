@@ -1,6 +1,8 @@
 # gallery-app
 
-This template should help get you started developing with Vue 3 in Vite.
+Gallery app with 2 page by using vue router, vuex and vuetify
+Main page is a page with parallax effect by using vutify and custom css animation.
+Photos page is a page with feature to upload (add) photos, to delete, to mark as primary (for background Main page), to raise dialog box with photo.
 
 ## Recommended IDE Setup
 
