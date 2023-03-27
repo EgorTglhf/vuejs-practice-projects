@@ -2,10 +2,10 @@
   <v-col cols="4">
     <v-card elevation="18">
       <v-card-title>{{ photo.title }}</v-card-title>
-      <v-card-text @click="openPhoto">
-        <v-img :src="photo.url" width="350" height="250" />
+      <v-card-text class="clickable" @click="openPhoto">
+        <v-img :src="photo.url" />
       </v-card-text>
-      <v-card-actions>
+      <v-card-actions class="d-flex justify-space-between flex-wrap">
         <v-btn color="green" @click="setPrimary"
           >Primary<v-icon
             color="green"
@@ -13,9 +13,7 @@
             icon="mdi-checkbox-marked-circle"
           ></v-icon
         ></v-btn>
-        <v-btn class="ml-auto" color="red" @click="deletePhoto"
-          ><v-icon icon="mdi-cancel"></v-icon
-        ></v-btn>
+        <v-btn color="red" @click="deletePhoto"><v-icon icon="mdi-cancel"></v-icon></v-btn>
       </v-card-actions>
     </v-card>
   </v-col>
@@ -47,4 +45,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+.clickable {
+  cursor: pointer;
+}
+</style>

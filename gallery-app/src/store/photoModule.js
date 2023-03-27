@@ -21,7 +21,15 @@ export default {
     },
     addPhoto(state, payload) {
       state.photos.push(payload)
-      this.commit('savePhotos')
+
+      try {
+        this.commit('savePhotos')
+      } catch (e) {
+        this.commit('deletePhoto', payload)
+        alert(
+          'Failed to upload photo to server. (In this version localStorage is used and it has a little size of memory)'
+        )
+      }
     },
     deletePhoto(state, payload) {
       state.photos = state.photos.filter((photo) => photo.id !== payload.id)
