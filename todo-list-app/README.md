@@ -1,6 +1,6 @@
 # todo-list-app
 
-
+Simple Todo List with features to create, to delete, to mark completed, to sort, to search todo items.
 
 ## Recommended IDE Setup
 
