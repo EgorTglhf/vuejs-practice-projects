@@ -65,6 +65,7 @@ function updateInputCheckbox(event) {
   box-shadow: 0 6px 16px 0px var(--color-shadow-1),
     0 4px 20px 0 var(--color-shadow-2);
   border-radius: var(--border-radius-element);
+  color: var(--color-text);
 }
 
 .input__text:focus {
@@ -129,7 +130,7 @@ function updateInputCheckbox(event) {
   bottom: 4px;
   width: 5px;
   height: 15px;
-  border: solid var(--color-text);
+  border: solid var(--color-border);
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
